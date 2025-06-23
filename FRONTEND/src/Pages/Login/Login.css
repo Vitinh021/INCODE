@@ -1,0 +1,84 @@
+  .header {
+    display: flex;
+    justify-content: space-between; /* agora espaço entre esquerda e direita */
+    align-items: center;
+    padding: 0.2rem 1rem;
+    background: #4cbb17;
+    gap: 1rem;
+  }
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+   
+  }
+  
+  .header-right {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .main {
+    align-items: center;
+    background-image: url('/public/imagens/1.png'); /* Altere para o caminho correto da sua imagem */
+    background-size: cover; /* Para cobrir todo o espaço */
+    background-position: center; /* Centralizar a imagem */
+    width: 100%;
+    height: 100vh; /* Ocupa 100% da altura da viewport */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .conteiner{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    max-width: 800px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #d3f1a1;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    margin-top: 20px;
+  }
+
+h1, h3{
+  text-align: center;
+  color: #0e1b00;
+  margin-bottom: 15px;
+}
+
+input{
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+
+
+.BtnCadastro{
+  text-align: center;
+  background-color: #4cbb17;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: auto;
+  max-width: none;
+  display: inline-block;
+  border-radius: 20px;
+  border: 3px solid white;
+  padding: 15px 15px;
+  text-align: center;
+  box-sizing: border-box;
+  flex-grow: 1;
+}

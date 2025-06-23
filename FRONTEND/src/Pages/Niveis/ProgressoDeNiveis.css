@@ -1,0 +1,327 @@
+/* ProgressoDeNiveis.css */
+
+/* Estilos globais para HTML, BODY e #root (boa prática) */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Ocupa a altura total da viewport */
+  width: 100vw;  /* Ocupa a largura total da viewport */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f4f8; /* Cor de fundo padrão, se nada mais for definido */
+  color: #333;
+  overflow: hidden; /* Evita barras de rolagem indesejadas se os elementos excederem a viewport */
+}
+
+/* Container principal da tela */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Preenche toda altura da viewport */
+  width: 100vw;  /* Preenche toda largura da viewport */
+  background: #fff; /* Fundo do container (pode ser substituído pela imagem de fundo principal) */
+  box-shadow: none;
+  border-radius: 0;
+  overflow: hidden; /* Garante que o conteúdo não vaze */
+}
+
+/* Estilos do cabeçalho */
+.header {
+  display: flex;
+  justify-content: space-between; /* Espaço entre o logo e os ícones */
+  align-items: center;
+  padding: 0.2rem 1rem;
+  background: #6CBE44; /* Cor verde da imagem do cabeçalho */
+  min-height: 80px; /* Garante uma altura mínima para o cabeçalho */
+  box-sizing: border-box; /* Inclui padding na largura/altura total */
+  z-index: 100; /* Garante que o cabeçalho fique acima de outros elementos */
+  position: relative; /* Para garantir que o z-index funcione */
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/* Ajuste o tamanho do logo Cacthon no cabeçalho */
+.header-left img {
+  max-height: 80px; /* Ajuste conforme a altura que você deseja para o logo */
+  width: auto;
+}
+
+.header-right {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Estilos para os botões de ícone no cabeçalho (Home, Perfil) */
+/* Removi a classe .btn, pois ela tem padding e background que podem conflitar */
+.header-icon-btn { /* Adicionei uma classe específica para diferenciar */
+  background-color: transparent; /* Fundo transparente para o botão de ícone */
+  border: none; /* Sem borda */
+  padding: 0.5rem; /* Padding menor para os ícones */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+  display: flex; /* Para centralizar o ícone */
+  align-items: center;
+  justify-content: center;
+}
+
+.header-icon-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Efeito de hover mais suave */
+  border-radius: 50%; /* Faz o hover ser um círculo */
+  transform: scale(1.1);
+}
+
+/* Removi os estilos .logo-placeholder e .site-name se não forem usados */
+
+/* ******************************************************************* */
+/* NOVOS ESTILOS PARA A ÁREA PRINCIPAL DO JOGO */
+/* ******************************************************************* */
+
+.main-content { /* Renomeado de .main para evitar conflitos e ser mais descritivo */
+  flex: 1; /* Faz com que esta seção ocupe o espaço restante */
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente o game-area */
+  align-items: center; /* Centraliza verticalmente o game-area */
+  position: relative; /* Permite posicionamento absoluto de elementos dentro dela (como o btnVoltar) */
+  overflow: hidden; /* Garante que o conteúdo não vaze para fora do main-content */
+  background-color: #e0f2f7; /* Um fundo neutro para a área principal */
+}
+
+/* Botão de voltar */
+.btnVoltar {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  padding: 0.6rem 1rem; /* Ajuste o padding */
+  font-weight: 600;
+  border-radius: 25px;
+  color: rgb(24, 255, 8); /* Cor do texto/ícone do botão de voltar */
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  user-select: none;
+  font-family: 'Times New Roman', Times, serif;
+
+  position: absolute; /* Posição absoluta em relação ao .main-content */
+  top: 20px; /* Distância do topo do .main-content */
+  left: 20px; /* Distância da esquerda do .main-content */
+  z-index: 50; /* Garante que fique acima da área do jogo */
+  display: flex; /* Para alinhar o ícone e o texto (se tiver) */
+  align-items: center;
+  justify-content: center;
+}
+
+.btnVoltar:hover {
+  background-color: #fff;
+  color: #000000;
+  box-shadow: 0 4px 14px rgba(118, 75, 162, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Área do jogo que contém a imagem de fundo e todos os elementos interativos */
+.game-area {
+  position: relative; /* MUITO IMPORTANTE: Define o contexto de posicionamento para os elementos absolutos internos */
+  width: 100%; /* Ocupa a largura total do main-content */
+  height: 100%; /* Ocupa a altura total do main-content */
+  max-width: 1300px; /* Ajuste para a largura ideal da sua imagem de fundo */
+  max-height: 800px; /* Ajuste para a altura ideal da sua imagem de fundo */
+  display: flex; /* Para centralizar a imagem de fundo se ela for menor que o max-width/height */
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Esconde qualquer coisa que vaze da área do jogo */
+}
+
+.game-area .background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Redimensiona a imagem para caber no container mantendo a proporção. 'cover' também é uma opção se você quiser que ela preencha tudo, mesmo que corte um pouco. */
+  position: absolute; /* Para que outros elementos possam sobrepor */
+  top: 0;
+  left: 0;
+  z-index: 1; /* Coloca a imagem de fundo atrás de tudo */
+}
+
+/* Estilos do personagem (lagarto) */
+.character-image {
+  position: absolute;
+  /* AJUSTE ESTES VALORES COM PRECISÃO USANDO O INSPETOR DE ELEMENTOS DO NAVEGADOR */
+  bottom: 8%; /* Ajuste a distância da parte inferior do .game-area */
+  left: 10%; /* Ajuste a distância da parte esquerda do .game-area */
+  width: 250px; /* Largura do personagem. Ajuste conforme a sua imagem. */
+  height: auto; /* Mantém a proporção */
+  z-index: 3; /* Garante que fique acima da imagem de fundo */
+  pointer-events: none; /* Impede que o personagem seja clicável e bloqueie botões */
+}
+
+/* Estilos da caixa de diálogo */
+.dialog-box {
+  position: absolute;
+  /* AJUSTE ESTES VALORES COM PRECISÃO USANDO O INSPETOR DE ELEMENTOS DO NAVEGADOR */
+  bottom: 28%; /* Ajuste a distância da parte inferior do .game-area */
+  left: 18%; /* Ajuste a distância da parte esquerda do .game-area */
+  background-color: white;
+  border: 2px solid #333;
+  border-radius: 15px;
+  padding: 15px 20px;
+  max-width: 300px;
+  text-align: center;
+  font-size: 1.2em;
+  color: #333;
+  z-index: 3; /* Garante que fique acima da imagem de fundo */
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Container dos botões de nível (dentro de game-area) */
+.level-buttons-container {
+  position: absolute; /* Posição absoluta em relação ao .game-area */
+  width: 100%; /* Ocupa a largura do .game-area */
+  height: 100%; /* Ocupa a altura do .game-area */
+  z-index: 2; /* Fica entre a imagem de fundo e o personagem/diálogo */
+}
+
+/* Estilos comuns para todos os botões de nível (os círculos) */
+.level-button {
+  position: absolute;
+  width: 250px; /* Tamanho do círculo do botão. AJUSTE para o tamanho dos círculos na sua imagem! */
+  height: 250px; /* Deve ser igual ao width para ser um círculo perfeito */
+  border-radius: 50%; /* Faz com que seja um círculo */
+  /* Removi background-color e border do botão em si, pois a imagem cobrirá */
+  background-color: transparent; /* Fundo transparente para o botão */
+  border: none; /* Sem borda para o botão */
+  overflow: hidden; /* Garante que a imagem do nível não vaze do formato circular */
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease; /* Transições suaves apenas para o transform */
+}
+
+/* Estilo para a imagem DENTRO de cada botão de nível */
+.level-button .level-icon-image {
+  width: 100%; /* Faz a imagem preencher o botão */
+  height: 100%; /* Faz a imagem preencher o botão */
+  object-fit: cover; /* Redimensiona a imagem para caber no container, mantendo a proporção */
+  /* Se suas imagens de nível já são círculos perfeitos e você quer que elas preencham, use 'cover' */
+  /* object-fit: cover; */
+  border-radius: 50%; /* Garante que a imagem interna também seja circular */
+}
+
+.level-button:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra para um efeito visual de destaque */
+}
+
+/* Remove ou comenta este estilo se você estiver usando imagens para os níveis e não quer o número */
+/*
+.level-button span {
+  display: none;
+}
+*/
+
+/* ******************************************************************* */
+/* POSICIONAMENTO INDIVIDUAL DE CADA BOTÃO DE NÍVEL */
+/* ESTES VALORES SÃO CRÍTICOS E DEVEM SER AJUSTADOS NO NAVEGADOR! */
+/* Use as ferramentas de desenvolvedor (F12) para ajustar 'top' e 'left' */
+/* ******************************************************************* */
+
+.level-1 {
+  top: 33.3%;  /* Ajuste a porcentagem para alinhar com o centro do círculo 1 na imagem */
+  left: 55.6%; /* Ajuste a porcentagem para alinhar com o centro do círculo 1 na imagem */
+  transform: translate(-50%, -50%); /* Centraliza o botão no ponto top/left */
+}
+
+.level-2 {
+  top: 33.3%; /* Ajuste a porcentagem para alinhar com o centro do círculo 2 na imagem */
+  left: 85.9%; /* Ajuste a porcentagem para alinhar com o centro do círculo 2 na imagem */
+  transform: translate(-50%, -50%); /* Centraliza o botão no ponto top/left */
+}
+
+.level-3 {
+  top: 77%; /* Ajuste a porcentagem para alinhar com o centro do círculo 3 na imagem */
+  left: 85.6%; /* Ajuste a porcentagem para alinhar com o centro do círculo 3 na imagem */
+  transform: translate(-50%, -50%); /* Centraliza o botão no ponto top/left */
+}
+
+.level-4 {
+  top: 77%; /* Ajuste a porcentagem para alinhar com o centro do círculo 4 na imagem */
+  left: 55.6%; /* Ajuste a porcentagem para alinhar com o centro do círculo 4 na imagem */
+  transform: translate(-50%, -50%); /* Centraliza o botão no ponto top/left */
+}
+
+/* ******************************************************************* */
+/* MEDIA QUERIES PARA RESPONSIVIDADE (AJUSTAR SE NECESSÁRIO) */
+/* ******************************************************************* */
+
+@media (max-width: 1024px) {
+  /* Ajustes para tablets e laptops menores */
+  .level-button {
+    width: 80px; /* Reduza o tamanho dos botões proporcionalmente se necessário */
+    height: 80px;
+  }
+  .level-1 {
+    top: 34%; /* Pode ser necessário ajustar ligeiramente */
+    left: 55%; /* Pode ser necessário ajustar ligeiramente */
+  }
+  .level-2 {
+    top: 34%;
+    left: 85%;
+  }
+  .level-3 {
+    top: 76%;
+    left: 84%;
+  }
+  .level-4 {
+    top: 76%;
+    left: 56%;
+  }
+}
+
+
+@media (max-width: 768px) {
+  /* Ajustes para tablets em modo retrato ou smartphones maiores */
+  .level-button {
+    width: 60px; /* Reduza mais o tamanho */
+    height: 60px;
+  }
+  .level-1 {
+    top: 35%; /* Mais ajustes finos */
+    left: 54%;
+  }
+  .level-2 {
+    top: 35%;
+    left: 84%;
+  }
+  .level-3 {
+    top: 75%;
+    left: 83%;
+  }
+  .level-4 {
+    top: 75%;
+    left: 57%;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Ajustes para smartphones */
+  .level-button {
+    width: 50px; /* Reduza ainda mais o tamanho */
+    height: 50px;
+  }
+  .level-1 {
+    top: 36%; /* Últimos ajustes */
+    left: 53%;
+  }
+  .level-2 {
+    top: 36%;
+    left: 83%;
+  }
+  .level-3 {
+    top: 74%;
+    left: 82%;
+  }
+  .level-4 {
+    top: 74%;
+    left: 58%;
+  }
+}

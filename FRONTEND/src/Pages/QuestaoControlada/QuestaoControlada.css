@@ -1,0 +1,188 @@
+  .header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0.2rem 1rem;
+    background: #4cbb17;
+    gap: 1rem;
+  }
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+   
+  }
+  
+  .header-right {
+    display: flex;
+    gap: 1rem;
+  }
+
+.main {
+    text-align: center;
+    background-image: url('/public/imagens/1.png'); /* Altere para o caminho correto da sua imagem */
+    background-size: cover; /* Para cobrir todo o espaço */
+    background-position: center; /* Centralizar a imagem */
+    width: 100%;
+    height: 100vh; /* Ocupa 100% da altura da viewport */
+    display: flex;
+    flex-direction: column;
+    color: #4cbb17;
+  }
+
+.card {
+    text-align: center;
+   margin-top: 1%;
+   display: flex;
+   justify-content: center;
+   margin-left: 20%;
+   margin-right: 20%;
+   background-color: white ;
+   color: #1c5e21;
+   border-color: #4cbb17;
+   border: 5px solid #4cbb17;
+   border-radius: 10px;  
+}
+
+.txtInfo {
+    margin-top: 30px;
+    color: #1c5e21
+}
+
+
+
+h2{
+  text-align: center;
+  color: #0e1b00;
+  margin-bottom: 15px;
+}
+
+input{
+    width: 70%;
+    height: 150px;
+    font-size: 20px;
+    border: 5px solid #4cbb17;
+    margin-bottom: 20px;
+}
+
+.BtnEnviar {
+      background-color: #4cbb17; 
+      color: #1c5e21;
+      border-color: #000000;
+      border: 5px solid #000000;
+      padding: 15px 120px;
+      font-size: 1.2rem;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 30px;
+
+    
+}
+.BtnEnviar:hover {
+      background: #4cbb17;
+      border-color: #000000; 
+      color: #ffffff;
+    }
+
+
+
+.Resposta{
+    text-align: center;
+   margin-top: 1%;
+   display: flex;
+   justify-content: center;
+   margin-left: 20%;
+   margin-right: 20%;
+   background-color: white ;
+   color: #1c5e21;
+   border-color: #4cbb17;
+   border: 5px solid #4cbb17;
+   border-radius: 10px;  
+}
+
+.cardbody{
+    text-align: center;
+   margin-top: 1%;
+   display: flex;
+   justify-content: center;
+   margin-left: 20%;
+   margin-right: 20%;
+   background-color: white ;
+   color: #1c5e21;
+   border-color: #4cbb17;
+   border: 5px solid #4cbb17;
+   border-radius: 10px;  
+}
+
+
+
+.option-group {
+  margin-bottom: 3rem; 
+}
+
+.option-group h3 {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #111827; 
+  margin-bottom: 1rem;
+  letter-spacing: 0.03em;
+}
+
+
+.options-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem; 
+}
+
+
+.option-button {
+  background-color: #f9fafb; 
+  color: #1c5e21;                
+  border: 5px solid #4cbb17;   
+  border-radius: 0.75rem;         
+  padding: 1rem 1.5rem;           
+  font-weight: 600;
+  font-size: 1.2rem;              
+  cursor: pointer;
+  transition: 
+    background-color 0.3s ease, 
+    border-color 0.3s ease, 
+    color 0.3s ease,
+    transform 0.2s ease;
+  user-select: none;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  flex: 1 0 auto;
+  max-width: 15rem;               
+  text-align: center;
+}
+
+
+.option-button:hover,
+.option-button:focus-visible {
+  background-color: #e4f0e8;  
+  border-color: #10b981;    
+  color: #065f46;             
+  outline: none;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(16, 185, 129, 0.25);
+}
+
+
+.option-button.selected {
+  background-color: #10b981; 
+  border-color: #065f46;     
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 6px 12px rgba(6, 95, 70, 0.4);
+  transform: scale(1.05);
+}
+
+@media (max-width: 480px) {
+  .option-button {
+    max-width: 100%;
+    flex: 1 0 100%;
+  }
+}

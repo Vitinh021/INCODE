@@ -1,0 +1,402 @@
+/* ProgressoDeNivel1.css */
+
+/* Estilos globais para HTML, BODY e #root */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f4f8;
+  color: #333;
+  overflow: hidden;
+}
+
+/* Container principal da tela */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background: #fff;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+/* Estilos do cabeçalho */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.2rem 1rem;
+  background: #4cbb17;
+  min-height: 80px;
+  box-sizing: border-box;
+  z-index: 100;
+  position: relative;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/* Ajuste o tamanho do logo Cacthon no cabeçalho */
+.header-logo { /* Alterei a classe para ser mais específica para a imagem */
+  max-height: 80px;
+  width: auto;
+}
+
+/* Removido .logo-placeholder e .site-name se não forem usados nesta página.
+   Se forem usados, mantenha-os e adapte se necessário.
+*/
+
+.header-right {
+  display: flex;
+  gap: 1rem;
+}
+
+/* ******************************************************************* */
+/* ESTILOS DE BOTÕES GERAIS E ESPECÍFICOS */
+/* ******************************************************************* */
+
+/* Classe .btn - Para botões de ícone no cabeçalho */
+.btn { /* Usado para Home e Perfil no cabeçalho */
+  background-color: transparent; /* Fundo transparente para o botão de ícone */
+  border: none;
+  padding: 0.5rem; /* Padding menor para os ícones */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+  display: flex; /* Para centralizar o ícone */
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: scale(1.1);
+}
+
+/* Botão de voltar */
+.btnVoltar {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+  border-radius: 25px;
+  color: rgb(24, 255, 8);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  user-select: none;
+  font-family: 'Times New Roman', Times, serif;
+
+  position: absolute; /* Posição absoluta em relação ao .main */
+  top: 20px;
+  left: 20px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnVoltar:hover {
+  background-color: #fff;
+  color: #000000;
+  box-shadow: 0 4px 14px rgba(118, 75, 162, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Contêiner dos botões (próximo, salvar) */
+.btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+
+  position: absolute; /* Posição absoluta em relação ao .main */
+  bottom: 20px;
+  right: 20px;
+  z-index: 40;
+}
+
+/* Botão Próximo */
+.btn-prox {
+  background-color: #4cbb17;
+  color: #ffffff;
+  border: 3px solid #ffffff;
+  border-radius: 10px;
+  font-weight: bold;
+  padding: 0.8rem 1.6rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.btn-prox:hover {
+  background: #01ae01;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Botão Salvar */
+.btn-salvar {
+  background-color: #4cbb17;
+  color: #ffffff;
+  border: 3px solid #ffffff;
+  border-radius: 10px;
+  font-weight: bold;
+  padding: 0.8rem 1.6rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.btn-salvar:hover {
+  background: #01ae01;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ******************************************************************* */
+/* ESTILOS DA ÁREA PRINCIPAL DO JOGO (MAIN) - Agora o "Game Area" */
+/* ******************************************************************* */
+
+.main {
+  flex: 1; /* Faz com que esta seção ocupe o espaço restante */
+  display: flex; /* Para centralizar o level-buttons-container e outros elementos */
+  justify-content: center; /* Centraliza horizontalmente o conteúdo (se houver) */
+  align-items: center; /* Centraliza verticalmente o conteúdo (se houver) */
+  position: relative; /* ESSENCIAL: Define o contexto de posicionamento para os elementos absolutos internos */
+  overflow: hidden; /* Garante que o conteúdo não vaze */
+  background-color: #edf2fb; /* Fundo base */
+
+  /* Estilos da imagem de fundo - ESTA É A IMAGEM DO MAPA/CENÁRIO DOS NÍVEIS */
+  background-image: url('/public/imagens/8.png'); /* VERIFIQUE O CAMINHO E O NOME DO ARQUIVO */
+  background-size: cover; /* Para cobrir todo o espaço disponível. Pode cortar a imagem. */
+  background-position: center; /* Centralizar a imagem */
+  background-repeat: no-repeat; /* Para imagens de fundo únicas */
+  
+  height: 100%; /* Ocupa 100% da altura do flex-item (container principal) */
+  width: 100%; /* Ocupa 100% da largura. */
+
+  /* IMPORTANTE: Se a imagem 8.png tem uma proporção específica que precisa ser mantida
+     para os círculos se alinharem, use aspect-ratio.
+     Exemplo: Se 8.png é 1920x1080 (proporção 16/9), adicione:
+     aspect-ratio: 16 / 9;
+     Se usar aspect-ratio, considere mudar background-size: cover para background-size: contain;
+     ou mesmo remover background-size/position/repeat e usar uma <img> interna com object-fit.
+     POR ENQUANTO, VOU MANTER background-size: cover pois é o que você tinha.
+     Para precisão, o ideal é usar a técnica da "bounding box" que discuti anteriormente.
+  */
+}
+
+
+/* ******************************************************************* */
+/* CONTAINER DOS BOTÕES DE NÍVEL - NOVO POSICIONAMENTO */
+/* ******************************************************************* */
+.level-buttons-container {
+  position: absolute; /* Posicionado em relação ao .main */
+  width: 100%; /* Ocupa toda a largura do .main */
+  height: 100%; /* Ocupa toda a altura do .main */
+  top: 0;
+  left: 0;
+  z-index: 2; /* Fica acima da imagem de fundo do .main */
+  /* background-color: rgba(255,0,0,0.1); /* Para depuração: visualize a área */
+}
+
+/* Estilos comuns para todos os botões de nível (os círculos) */
+.level-button {
+  position: absolute; /* Posicionado em relação ao .level-buttons-container */
+  width: 200px; /* Tamanho do círculo do botão - ajustar conforme seus círculos na imagem 8.png */
+  height: 200px; /* Deve ser igual ao width para ser um círculo perfeito */
+  border-radius: 50%;
+  background-color: transparent; /* Fundo transparente */
+  border: none;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilo para a imagem DENTRO de cada botão de nível */
+.level-button .level-icon-image {
+  width: 100%;
+  height: 100%;
+  object-fit: unset; /* Para preencher o círculo do botão */
+  border-radius: 50%;
+}
+
+.level-button:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* ******************************************************************* */
+/* POSICIONAMENTO INDIVIDUAL DE CADA BOTÃO DE NÍVEL */
+/* ESTES VALORES SÃO CRÍTICOS E DEVEM SER AJUSTADOS NO NAVEGADOR! */
+/* Eles se referem a porcentagens da largura/altura do .level-buttons-container (que é 100% do .main) */
+/* ******************************************************************* */
+
+.level-1 {
+  top: 26%;
+  left: 54.6%;
+  transform: translate(-50%, -50%); /* Centraliza o botão no ponto top/left */
+}
+
+.level-2 {
+  top: 26%;
+  left: 85.9%;
+  transform: translate(-50%, -50%);
+}
+
+.level-3 {
+  top: 58%;
+  left: 55.6%;
+  transform: translate(-50%, -50%);
+}
+
+.level-4 {
+  top: 58%;
+  left: 85.6%;
+  transform: translate(-50%, -50%);
+}
+
+.level-5 { /* Adicionei o nível 5, se precisar */
+  top: 89%; /* Exemplo: ajuste a posição */
+  left: 55%; /* Exemplo: ajuste a posição */
+  transform: translate(-50%, -50%);
+}
+
+
+/* ******************************************************************* */
+/* MEDIA QUERIES PARA RESPONSIVIDADE (AJUSTAR SE NECESSÁRIO) */
+/* ******************************************************************* */
+
+@media (max-width: 1024px) {
+  .header {
+    min-height: 70px;
+  }
+  .header-logo {
+    max-height: 70px;
+  }
+  .btn { /* Botões do cabeçalho */
+    padding: 0.4rem;
+  }
+  .btnVoltar {
+    top: 15px;
+    left: 15px;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  .btns { /* Botões Próximo e Salvar */
+    bottom: 15px;
+    right: 15px;
+    gap: 10px;
+  }
+  .btn-prox, .btn-salvar {
+    padding: 0.7rem 1.4rem;
+    font-size: 0.9rem;
+  }
+
+  /* Ajustes para os botões de nível (tamanho, não posição percentual) */
+  .level-button {
+    width: 180px; /* Reduza o tamanho dos botões */
+    height: 180px;
+  }
+  /* Posições percentuais devem ser reajustadas se o "aspect-ratio" do .main mudar ou a imagem de fundo for muito diferente */
+  .level-1 { top: 33.5%; left: 55.5%; }
+  .level-2 { top: 33.5%; left: 85.8%; }
+  .level-3 { top: 76.5%; left: 85.5%; }
+  .level-4 { top: 76.5%; left: 55.5%; }
+  .level-5 { top: 55.5%; left: 70.5%; }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5rem 1rem;
+    min-height: auto;
+  }
+  .header-right {
+    margin-top: 10px;
+    width: 100%;
+    justify-content: flex-end;
+  }
+  .header-logo {
+    max-height: 60px;
+  }
+  .btn {
+    padding: 0.3rem;
+  }
+  .btnVoltar {
+    top: 10px;
+    left: 10px;
+    padding: 0.4rem 0.7rem;
+    font-size: 0.8rem;
+  }
+  .btns {
+    bottom: 10px;
+    right: 10px;
+    gap: 8px;
+  }
+  .btn-prox, .btn-salvar {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+  }
+
+  /* Ajustes para os botões de nível */
+  .level-button {
+    width: 120px;
+    height: 120px;
+  }
+  .level-1 { top: 34%; left: 55%; }
+  .level-2 { top: 34%; left: 85%; }
+  .level-3 { top: 76%; left: 85%; }
+  .level-4 { top: 76%; left: 56%; }
+  .level-5 { top: 56%; left: 70%; }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 0.3rem 0.5rem;
+  }
+  .header-logo {
+    max-height: 50px;
+  }
+  .btn {
+    padding: 0.2rem;
+  }
+  .btnVoltar {
+    top: 5px;
+    left: 5px;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.7rem;
+  }
+  .btns {
+    bottom: 5px;
+    right: 5px;
+    gap: 5px;
+  }
+  .btn-prox, .btn-salvar {
+    padding: 0.5rem 1rem;
+    font-size: 0.7rem;
+  }
+
+  /* Ajustes para os botões de nível */
+  .level-button {
+    width: 80px;
+    height: 80px;
+  }
+  .level-1 { top: 34.5%; left: 54.5%; }
+  .level-2 { top: 34.5%; left: 84.5%; }
+  .level-3 { top: 75.5%; left: 84.5%; }
+  .level-4 { top: 75.5%; left: 55.5%; }
+  .level-5 { top: 56.5%; left: 69.5%; }
+}

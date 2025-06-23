@@ -1,0 +1,54 @@
+version: "3.8"
+
+services:
+  api:
+    build: ./API
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./API:/app
+    environment:
+      - TZ=America/Sao_Paulo
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASS=root
+      - DB_NAME=banco
+    depends_on:
+      - db
+    command: npm run dev
+    networks:
+      - app-network
+
+  frontend:
+    build: ./FRONTEND
+    ports:
+      - "5173:3000"
+    volumes:
+      - ./FRONTEND:/app
+    environment:
+      - TZ=America/Sao_Paulo
+    depends_on:
+      - api
+    command: npm start
+    networks:
+      - app-network
+
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: banco
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - app-network
+
+volumes:
+  db_data:
+
+
+networks:
+  app-network:

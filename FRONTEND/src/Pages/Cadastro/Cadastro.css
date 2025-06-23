@@ -1,0 +1,431 @@
+.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background-color: #4cba18;
+  padding: 5px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.navbar-brand {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand img {
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 120px;
+  height: 70px;
+  object-fit: contain;
+}
+
+.navbar > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar .btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar .btn svg {
+  font-size: 30px;
+}
+
+/* ESTILOS DO CONTEÚDO PRINCIPAL DA PÁGINA (FORMULÁRIO, DIV LOGIN, CACTOS) */
+.loginpage-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  min-height: auto;
+  box-sizing: border-box;
+  padding-bottom: 10px;
+  flex-grow: 1;
+
+  background-image: url('/public/imagens/1.png'); /* Altere para o caminho correto da sua imagem */
+  
+    background-repeat: repeat-y; /* Faz a imagem se repetir verticalmente */
+    background-size: auto; /* Mantém o tamanho original da imagem */
+    background-position: center; /* Centralizar a imagem */
+    width: 100%;
+    height: auto;
+    
+}
+
+.conteiner {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  max-width: 800px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #d3f1a1;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  margin-top: 20px;
+}
+
+/* ESTILOS DE TÍTULOS */
+h1,
+h2,
+h3 {
+  text-align: center;
+  color: #0e1b00;
+  margin-bottom: 15px;
+}
+
+/* ESTILOS DE INPUTS E BOTÕES GERAIS */
+input,
+button {
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* ESTILOS PARA OS BOTÕES DE CADASTRAR/LOGIN (botão verde escuro) */
+button {
+  background-color: #4cbb17;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: auto;
+  max-width: none;
+  display: inline-block;
+  border-radius: 50px;
+  border: 3px solid white;
+  padding: 15px 15px;
+  text-align: center;
+  box-sizing: border-box;
+  flex-grow: 1;
+  margin-top: 15px;
+}
+
+button:hover {
+  background-color: #063701;
+}
+
+/* ESTILOS PARA A SEÇÃO "JÁ SOU UM CACTHONIANO" */
+.divparalogar {
+  padding: 20px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.divparalogar h2,
+.divparalogar h3 {
+  margin-bottom: 10px;
+}
+
+.btns{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 5px;
+  gap: 5px;
+}
+
+.btn-email{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  
+  margin-top: 5px;
+
+
+  color: #000000;
+  border: 3px solid #4cbb17;
+  border-radius: 10px;  
+  font-weight: bold;
+}
+
+.btn-google{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 5px;
+  color: #000000;
+  border: 3px solid #4cbb17;
+  border-radius: 10px;  
+  font-weight: bold;
+}
+
+label {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 5px;
+  color: #152305;
+  font-weight: bold;
+}
+
+/* ESTILOS PARA A SEÇÃO DE ESCOLHA DE AVATAR */
+.avatar-selection {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.avatar-selection label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #1f3802;
+}
+
+.avatar-selection .avatar-options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* ESTILOS DOS BOTÕES DE AVATAR (ONDE AS IMAGENS FICAM DENTRO) */
+.avatar-selection .avatar-options .avatar-button {
+  background: none;
+  border: 2px solid transparent;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: border-color 0.3s ease;
+  font-size: 0;
+  flex-grow: 0;
+}
+
+.avatar-selection .avatar-options .avatar-button:hover,
+.avatar-selection .avatar-options .avatar-button.selected {
+  border-color: #094f02;
+}
+
+/* ESTILOS DAS IMAGENS DENTRO DOS BOTÕES DE AVATAR */
+.avatar-selection .avatar-options .avatar-button img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.avatar-selection .avatar-options .avatar-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(9, 79, 2, 0.5);
+}
+
+#cadastro {
+  display: block;
+  margin: 15px auto 0 auto;
+  width: 200px;
+  color: white;
+  cursor: pointer;
+  border-radius: 50px;
+  padding: 15px 15px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.foto {
+  max-width: 50%;
+  height: auto;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.foto2 {
+  max-width: 30%;
+  height: auto;
+  position: fixed;
+  left: auto;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+/* MEDIA QUERIES (RESPONSIVIDADE) */
+
+/* Para tablets e telas menores que 768px */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 3px 10px;
+  }
+  .navbar-brand img {
+    width: 100px;
+    height: 60px;
+  }
+  .navbar .btn svg {
+      font-size: 25px;
+  }
+
+  .loginpage-content { /* Usando o seletor correto */
+    padding-top: 7px; /* Ajuste o padding-top para a nova altura da navbar em tablets */
+    padding-bottom: 20px;
+    align-items: center; /* Mantém centralizado horizontalmente */
+  }
+
+  .conteiner {
+    width: 10%; /* Aumenta a largura em tablets para ocupar mais espaço */
+    padding: 15px;
+    margin-top: 2%;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 22px; /* Ajuste para h2 também */
+  }
+
+  h3 {
+    font-size: 18px; /* Ajuste para h3 também */
+  }
+
+  input,
+  button {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .foto,
+  .foto2 {
+    display: none; /* Esconde os cactos em telas menores */
+  }
+}
+
+/* Para smartphones e telas menores que 500px */
+@media (max-width: 500px) {
+  .navbar {
+    padding: 2px 5px; /* Navbar ainda mais fina */
+  }
+  .navbar-brand img {
+    width: 80px; /* Logo menor em smartphones */
+    height: 50px;
+  }
+  .navbar .btn svg {
+      font-size: 20px; /* Ícones menores */
+  }
+
+  .loginpage-content { /* Usando o seletor correto */
+    padding-top: 60px; /* Ajuste o padding-top para a navbar ainda mais fina em smartphones */
+    padding-bottom: 15px;
+  }
+
+  .conteiner {
+    width: 95%; /* Ocupa quase toda a largura em smartphones */
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  input,
+  button {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .avatar-selection {
+    padding: 10px; /* Padding menor na seção de avatar */
+  }
+
+  .avatar-selection label {
+    margin-bottom: 8px; /* Margem menor para o label do avatar */
+  }
+
+  .avatar-selection .avatar-options {
+    gap: 8px; /* Espaço entre avatares menor */
+  }
+
+  .avatar-selection .avatar-options .avatar-button {
+    width: 50px; /* Avatares menores em telas bem pequenas */
+    height: 50px;
+  }
+
+  #cadastro {
+    width: 150px; /* Botão de cadastro menor */
+    padding: 12px 10px;
+  }
+
+  .divparalogar {
+    padding: 15px; /* Padding menor para esta seção */
+  }
+
+  .botoes-login {
+    flex-direction: column; /* Botões de login em coluna para economizar espaço */
+    gap: 8px;
+  }
+
+  .botoes-login button {
+    width: 80%; /* Botões de login ocupam mais largura */
+    padding: 10px;
+  }
+}
+
+
+   .header {
+    display: flex;
+    justify-content: space-between; /* agora espaço entre esquerda e direita */
+    align-items: center;
+    padding: 0rem 1rem;
+    background: #4cbb17;
+    gap: 1rem;
+  }
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+   
+  }

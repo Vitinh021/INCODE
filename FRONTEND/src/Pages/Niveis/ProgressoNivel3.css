@@ -1,0 +1,431 @@
+/* ProgressoDeNivel3.css */
+
+/* Estilos globais para HTML, BODY e #root */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f4f8;
+  color: #333;
+  overflow: hidden; /* Evita barras de rolagem indesejadas */
+}
+
+/* Container principal da tela */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Preenche toda altura da viewport */
+  width: 100vw;  /* Preenche toda largura da viewport */
+  background: #fff;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: hidden; /* Garante que o conteúdo não vaze */
+}
+
+/* Estilos do cabeçalho */
+.header {
+  display: flex;
+  justify-content: space-between; /* Espaço entre o logo/nome e os ícones/botões */
+  align-items: center;
+  padding: 0.2rem 1rem;
+  background: #4cbb17; /* Cor verde do cabeçalho */
+  min-height: 80px; /* Garante uma altura mínima */
+  box-sizing: border-box; /* Inclui padding na largura/altura total */
+  z-index: 100; /* Garante que o cabeçalho fique acima */
+  position: relative; /* Para garantir que o z-index funcione */
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem; /* Espaçamento entre logo e nome */
+}
+
+/* Ajuste o tamanho do logo Cacthon no cabeçalho (para a imagem /imagens/19.png) */
+.header-left img {
+  max-height: 80px; /* Ajuste conforme a altura que você deseja para o logo */
+  width: auto; /* Mantém a proporção */
+}
+
+/* Os estilos .logo-placeholder e .site-name não estão sendo usados no JSX fornecido.
+   Se eles não forem usados nesta página, podem ser removidos para manter o CSS limpo.
+   Se forem usados em outras páginas, mantenha-os em um arquivo CSS compartilhado.
+.logo-placeholder {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255,255,255,0.4);
+  border-radius: 6px;
+  border: 2px dashed rgba(255,255,255,0.7);
+  flex-shrink: 0;
+}
+.site-name {
+  color: #e5e9e4;
+  font-size: 1.6rem;
+  font-weight: 700;
+  user-select: none;
+  letter-spacing: 0.05em;
+  font-family: 'Times New Roman', Times, serif;
+}
+*/
+
+.header-right {
+  display: flex;
+  gap: 1rem; /* Espaçamento entre os botões do lado direito */
+}
+
+/* ******************************************************************* */
+/* ESTILOS DE BOTÕES GERAIS E ESPECÍFICOS (APLICANDO FUNÇÕES DE BOTÃO) */
+/* ******************************************************************* */
+
+/* Classe .btn - Para botões de ícone no cabeçalho (Home e Perfil) */
+.btn {
+  background-color: transparent; /* Fundo transparente para o botão de ícone */
+  border: none;
+  padding: 0.5rem; /* Padding menor para os ícones */
+  cursor: pointer; /* Indicar clicável */
+  font-size: 1rem; /* Tamanho do ícone (controlado pelo size no JSX, mas bom ter aqui) */
+  transition: all 0.3s ease; /* Suavizar transições */
+  user-select: none;
+  display: flex; /* Para centralizar o ícone */
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%; /* Faz o hover ser um círculo */
+  transform: scale(1.1); /* Efeito de "zoom" ao passar o mouse */
+}
+
+/* Botão de voltar */
+.btnVoltar {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  padding: 0.6rem 1rem; /* Ajuste o padding para o botão voltar */
+  font-weight: 600;
+  border-radius: 25px;
+  color: rgb(24, 255, 8); /* Cor do texto/ícone do botão de voltar */
+  cursor: pointer; /* Indicar clicável */
+  font-size: 1rem;
+  transition: all 0.3s ease; /* Suavizar transições */
+  user-select: none;
+  font-family: 'Times New Roman', Times, serif;
+
+  position: absolute; /* Posição absoluta em relação ao .main */
+  top: 20px; /* Distância do topo do .main */
+  left: 20px; /* Distância da esquerda do .main */
+  z-index: 50; /* Garante que fique acima da área do jogo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Removido margin-left: -1180px; pois 'position: absolute' e 'left: 20px' já o posicionam */
+}
+
+.btnVoltar:hover {
+  background-color: #fff;
+  color: #000000;
+  box-shadow: 0 4px 14px rgba(118, 75, 162, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Contêiner dos botões (próximo, salvar) */
+.btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end; /* Alinha os botões à direita dentro do contêiner */
+  align-items: center; /* Centraliza os botões verticalmente */
+  gap: 15px; /* Espaçamento entre os botões */
+
+  position: absolute; /* Posição absoluta em relação ao .main */
+  bottom: 20px; /* 20px do fundo */
+  right: 20px; /* 20px da direita */
+  z-index: 40; /* Garante que fiquem acima de outros elementos */
+}
+
+/* Botão Próximo */
+.btn-prox {
+  background-color: #4cbb17;
+  color: #ffffff;
+  border: 3px solid #ffffff;
+  border-radius: 10px;
+  font-weight: bold;
+  padding: 0.8rem 1.6rem; /* Padding para a área de clique */
+  cursor: pointer; /* Indicar clicável */
+  transition: all 0.3s ease; /* Suavizar transições */
+  user-select: none;
+}
+
+.btn-prox:hover {
+  background: #01ae01; /* Cor de hover mais escura */
+  transform: translateY(-1px); /* Pequeno efeito de "subir" */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Botão Salvar */
+.btn-salvar {
+  background-color: #4cbb17;
+  color: #ffffff;
+  border: 3px solid #ffffff;
+  border-radius: 10px;
+  font-weight: bold;
+  padding: 0.8rem 1.6rem; /* Padding para a área de clique */
+  cursor: pointer; /* Indicar clicável */
+  transition: all 0.3s ease; /* Suavizar transições */
+  user-select: none;
+}
+
+.btn-salvar:hover {
+  background: #01ae01;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ******************************************************************* */
+/* ESTILOS DA ÁREA PRINCIPAL DO JOGO (MAIN) - O MAPA DOS NÍVEIS */
+/* ******************************************************************* */
+
+.main {
+  flex: 1; /* Faz com que esta seção ocupe o espaço restante */
+  display: flex; /* Para centralizar o level-buttons-container e outros elementos */
+  justify-content: center; /* Centraliza horizontalmente o conteúdo (se houver) */
+  align-items: center; /* Centraliza verticalmente o conteúdo (se houver) */
+  position: relative; /* ESSENCIAL: Define o contexto de posicionamento para os elementos absolutos internos */
+  overflow: hidden; /* Garante que o conteúdo não vaze */
+  background-color: #edf2fb; /* Fundo base */
+
+  /* Estilos da imagem de fundo - ESTA É A IMAGEM DO MAPA/CENÁRIO DOS NÍVEIS */
+  /* POR FAVOR, AJUSTE 'mapa_niveis.png' PARA O NOME REAL DA SUA IMAGEM DE FUNDO DO MAPA */
+  background-image: url('/public/imagens/12.png'); /* Exemplo: você terá que substituir pelo nome correto da imagem */
+  background-size: cover; /* Para cobrir todo o espaço disponível. Pode cortar a imagem. */
+  background-position: center; /* Centralizar a imagem */
+  background-repeat: no-repeat; /* Para imagens de fundo únicas */
+  
+  height: 100%; /* Ocupa 100% da altura do flex-item (container principal) */
+  width: 100%; /* Ocupa 100% da largura. */
+
+  /* Se a imagem do mapa (ex: mapa_niveis.png) tiver uma proporção específica (ex: 16:9),
+     É ALTAMENTE RECOMENDADO adicionar 'aspect-ratio' aqui para manter a proporção e
+     facilitar o posicionamento dos botões de nível.
+     Exemplo: aspect-ratio: 16 / 9;
+  */
+}
+
+/* ******************************************************************* */
+/* CONTAINER DOS BOTÕES DE NÍVEL - NOVO POSICIONAMENTO */
+/* ******************************************************************* */
+.level-buttons-container {
+  position: absolute; /* Posicionado em relação ao .main */
+  width: 100%; /* Ocupa toda a largura do .main */
+  height: 100%; /* Ocupa toda a altura do .main */
+  top: 0;
+  left: 0;
+  z-index: 2; /* Fica acima da imagem de fundo do .main */
+  /* background-color: rgba(255,0,0,0.1); /* Para depuração: visualize a área */
+}
+
+/* Estilos comuns para todos os botões de nível (os círculos) */
+.level-button {
+  position: absolute; /* Posicionado em relação ao .level-buttons-container */
+  width: 200px; /* Tamanho do círculo do botão - ajustar conforme seus círculos na imagem do mapa */
+  height: 200px; /* Deve ser igual ao width para ser um círculo perfeito */
+  border-radius: 50%;
+  background-color: transparent; /* Fundo transparente */
+  border: none;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Estilo para a imagem DENTRO de cada botão de nível (a imagem 11.png) */
+.level-button .level-icon-image {
+  width: 100%;
+  height: 100%;
+  object-fit: unset; /* Para preencher o círculo do botão */
+  border-radius: 50%; /* Garantir que a imagem também seja um círculo */
+}
+
+.level-button:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* ******************************************************************* */
+/* POSICIONAMENTO INDIVIDUAL DE CADA BOTÃO DE NÍVEL */
+/* ESTES VALORES SÃO CRÍTICOS E DEVEM SER AJUSTADOS NO NAVEGADOR! */
+/* Eles se referem a porcentagens da largura/altura do .level-buttons-container (que é 100% do .main) */
+/* Recomendo usar as ferramentas de desenvolvimento do navegador para encontrar os valores exatos */
+/* com a sua imagem de fundo do mapa. */
+/* ******************************************************************* */
+
+.level-1 {
+  top: 26%;
+  left: 54.6%;
+  transform: translate(-50%, -50%); /* Centraliza o botão no ponto top/left */
+}
+
+.level-2 {
+  top: 26%;
+  left: 85.9%;
+  transform: translate(-50%, -50%);
+}
+
+.level-3 {
+  top: 58%;
+  left: 55.6%;
+  transform: translate(-50%, -50%);
+}
+
+.level-4 {
+  top: 58%;
+  left: 85.6%;
+  transform: translate(-50%, -50%);
+}
+
+.level-5 { /* Adicionei o nível 5, se precisar */
+  top: 89%; /* Exemplo: ajuste a posição */
+  left: 55%; /* Exemplo: ajuste a posição */
+  transform: translate(-50%, -50%);
+}
+
+/* ******************************************************************* */
+/* MEDIA QUERIES PARA RESPONSIVIDADE (AJUSTAR SE NECESSÁRIO) */
+/* ******************************************************************* */
+
+@media (max-width: 1024px) {
+  .header {
+    min-height: 70px;
+  }
+  .header-left img { /* Para o logo */
+    max-height: 70px;
+  }
+  .site-name { /* Se estiver em uso */
+    font-size: 1.4rem;
+  }
+  .btn { /* Botões do cabeçalho */
+    padding: 0.4rem;
+  }
+  .btnVoltar {
+    top: 15px;
+    left: 15px;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  .btns { /* Botões Próximo e Salvar */
+    bottom: 15px;
+    right: 15px;
+    gap: 10px;
+  }
+  .btn-prox, .btn-salvar {
+    padding: 0.7rem 1.4rem;
+    font-size: 0.9rem;
+  }
+
+  /* Ajustes para os botões de nível (tamanho, não posição percentual) */
+  .level-button {
+    width: 180px; /* Reduza o tamanho dos botões */
+    height: 180px;
+  }
+  /* Posições percentuais devem ser reajustadas se o "aspect-ratio" do .main mudar ou a imagem de fundo for muito diferente */
+  /* Re-ajuste esses valores com a ferramenta de desenvolvimento */
+  .level-1 { top: 33.5%; left: 55.5%; }
+  .level-2 { top: 33.5%; left: 85.8%; }
+  .level-3 { top: 76.5%; left: 85.5%; }
+  .level-4 { top: 76.5%; left: 55.5%; }
+  .level-5 { top: 55.5%; left: 70.5%; }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5rem 1rem;
+    min-height: auto;
+  }
+  .header-right {
+    margin-top: 10px;
+    width: 100%;
+    justify-content: flex-end;
+  }
+  .header-left img { /* Para o logo */
+    max-height: 60px;
+  }
+  .site-name { /* Se estiver em uso */
+    font-size: 1.2rem;
+  }
+  .btn {
+    padding: 0.3rem;
+  }
+  .btnVoltar {
+    top: 10px;
+    left: 10px;
+    padding: 0.4rem 0.7rem;
+    font-size: 0.8rem;
+  }
+  .btns {
+    bottom: 10px;
+    right: 10px;
+    gap: 8px;
+  }
+  .btn-prox, .btn-salvar {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+  }
+
+  /* Ajustes para os botões de nível */
+  .level-button {
+    width: 120px;
+    height: 120px;
+  }
+  /* Re-ajuste esses valores com a ferramenta de desenvolvimento */
+  .level-1 { top: 34%; left: 55%; }
+  .level-2 { top: 34%; left: 85%; }
+  .level-3 { top: 76%; left: 85%; }
+  .level-4 { top: 76%; left: 56%; }
+  .level-5 { top: 56%; left: 70%; }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 0.3rem 0.5rem;
+  }
+  .header-left img { /* Para o logo */
+    max-height: 50px;
+  }
+  .site-name { /* Se estiver em uso */
+    font-size: 1rem;
+  }
+  .btn {
+    padding: 0.2rem;
+  }
+  .btnVoltar {
+    top: 5px;
+    left: 5px;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.7rem;
+  }
+  .btns {
+    bottom: 5px;
+    right: 5px;
+    gap: 5px;
+  }
+  .btn-prox, .btn-salvar {
+    padding: 0.5rem 1rem;
+    font-size: 0.7rem;
+  }
+
+  /* Ajustes para os botões de nível */
+  .level-button {
+    width: 80px;
+    height: 80px;
+  }
+  /* Re-ajuste esses valores com a ferramenta de desenvolvimento */
+  .level-1 { top: 34.5%; left: 54.5%; }
+  .level-2 { top: 34.5%; left: 84.5%; }
+  .level-3 { top: 75.5%; left: 84.5%; }
+  .level-4 { top: 75.5%; left: 55.5%; }
+  .level-5 { top: 56.5%; left: 69.5%; }
+}

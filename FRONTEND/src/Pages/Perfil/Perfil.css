@@ -1,0 +1,100 @@
+
+* {
+    box-sizing: border-box;
+  }
+
+.perfilpage{
+ display: flex;
+    flex-direction: column;
+    height: 100vh; /* Preenche toda altura da viewport */
+    width: 100vw;  /* Preenche toda largura da viewport */
+    background: #fff;
+    box-shadow: none;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.card {
+   margin-top: 1%;
+   display: flex;
+   justify-content: center;
+   margin-left: 20%;
+   margin-right: 20%;
+   background-color: #ffffff; 
+   color: #000000;
+   border-color: #4cbb17;
+   border: 3px solid #4cbb17;
+   border-radius: 10px;  
+   
+}
+
+.info{
+  text-align: start;
+  margin-left: 10%;
+  margin-right: 20%;
+  margin-top: 2%;
+}
+
+.org2{
+  margin-left: 11%;
+  margin-right: 20%;
+}
+
+.org3{
+  margin-top: 4%;
+  margin-left: 11%;
+  margin-right: 20%;
+}
+
+.cardbtn {
+  margin-top: 2%;
+  margin-left: 20%;
+  margin-right: 20%;
+  background-color: #ffffff; 
+  color: #000000;
+  border: 3px solid #4cbb17;
+  border-radius: 10px;  
+  font-weight: bold;
+}
+
+.btnexcluir{
+  margin-top: 2%;
+  margin-left: 88%;
+  justify-content: flex-end;
+  align-items: end;
+  color: #000000;
+  border: 3px solid #4cbb17;
+  border-radius: 10px;  
+  font-weight: bold;
+}
+  .header {
+    display: flex;
+    justify-content: space-between; /* agora espaço entre esquerda e direita */
+    align-items: center;
+    padding: 0.2rem 1rem;
+    background: #4cbb17;
+    gap: 1rem;
+  }
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+   
+  }
+  
+  .header-right {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .main {
+    background-image: url('/public/imagens/1.png'); /* Altere para o caminho correto da sua imagem */
+    background-size: cover; /* Para cobrir todo o espaço */
+    background-position: center; /* Centralizar a imagem */
+    width: 100%;
+    height: 100vh; /* Ocupa 100% da altura da viewport */
+    display: flex;
+    flex-direction: column;
+  }
+  

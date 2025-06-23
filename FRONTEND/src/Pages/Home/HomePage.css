@@ -1,0 +1,212 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  html, body, #root {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f4f8;
+    color: #333;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Preenche toda altura da viewport */
+    width: 100vw;  /* Preenche toda largura da viewport */
+    background: #fff;
+    box-shadow: none;
+    border-radius: 0;
+    overflow: hidden;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between; /* agora espaço entre esquerda e direita */
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #4cbb17;
+    gap: 1rem;
+  }
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+   
+  }
+  
+  .logo-placeholder {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255,255,255,0.4);
+    border-radius: 6px;
+    border: 2px dashed rgba(255,255,255,0.7);
+    flex-shrink: 0;
+  }
+  
+  .site-name {
+    color: #e5e9e4;
+    font-size: 1.6rem;
+    font-weight: 700;
+    user-select: none;
+    letter-spacing: 0.05em;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .header-right {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .btn {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    padding: 0.6rem 1.4rem;
+    font-weight: 600;
+    border-radius: 25px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    user-select: none;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .btn:hover {
+    background-color: #fff;
+    color: #000000;
+    box-shadow: 0 4px 14px rgba(118, 75, 162, 0.3);
+    transform: translateY(-2px);
+  }
+  
+  .main {
+    flex: 1;
+    padding: 3rem 2rem;
+    text-align: center;
+    background: #edf2fb;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url('/public/imagens/2.png'); /* Altere para o caminho correto da sua imagem */
+    background-size: cover; /* Para cobrir todo o espaço */
+    background-position: center; /* Centralizar a imagem */
+    width: 100%;
+    height: 100vh; /* Ocupa 100% da altura da viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+  }
+  
+  .title {
+    color: #000000;
+    font-size: 2.5rem;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  
+  .description {
+    max-width: 600px;
+    font-size: 1.2rem;
+    color: #000000;
+    line-height: 1.5;
+    margin: 0 auto;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .footer {
+    background:#4cbb17;
+    color: #000000;
+    text-align: center;
+    padding: 1.5rem 2rem;
+    font-size: 0.9rem;
+    user-select: none;
+  }
+  
+  .footer-link {
+    color: #000000;
+    margin: 0 0.6rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .footer-link:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 600px) {
+    .site-name {
+      font-size: 1.3rem;
+    }
+    .logo-placeholder {
+      width: 32px;
+      height: 32px;
+    }
+    .title {
+      font-size: 1.8rem;
+    }
+  
+    .description {
+      font-size: 1rem;
+      padding: 0 1rem;
+    }
+  
+    .header {
+      padding: 1rem;
+    }
+  
+    .btn {
+      font-size: 0.9rem;
+      padding: 0.5rem 1rem;
+    }
+  
+    .footer {
+      font-size: 0.85rem;
+      padding: 1rem;
+    }
+  }
+
+    .imgcactaum{
+    background-image: url('/public/imagens/18.png'); /* Altere para o caminho correto da sua imagem */
+    background-size: cover; /* Para cobrir todo o espaço */
+    background-position: center; /* Centralizar a imagem */
+    width: 30%;
+    height: 10vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+
+    }
+
+
+    .play-button {
+      background-color: #4cbb17; 
+      color: white;
+      border-color: white;
+      border: 10px solid #fffefe;
+      padding: 15px 120px;
+      font-size: 1.2rem;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 30px;
+    }
+    .play-button:hover {
+      background: #01ae01;
+      border-color: #000000; 
+    }
+
+  .tagline{
+    text-align: center;
+    align-items: center;
+    color: #000000;
+    font-size: 1.2rem;
+  }
