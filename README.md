@@ -1,12 +1,12 @@
 # API-INCODE
 
-API RESTfull para um software educacional que ensina as pessoas a programar de forma gamificada. Todo o projeto está containerizado com **Docker**, facilitando a execução em qualquer ambiente.
+Um software educacional que ensina as pessoas a programar de forma gamificada. Todo o projeto está containerizado com **Docker**, facilitando a execução em qualquer ambiente.
 
 ---
 
 ## 📦 Tecnologias
 
-- Node.js + Express
+- Node.js + Express + React
 - MySQL
 - Docker + Docker Compose
 - Nodemon
@@ -28,7 +28,7 @@ Antes de começar, instale:
 Clone o repositório:
 
 ```bash
-git clone https://github.com/Vitinh021/API-INCODE.git -> clonar projeto
+git clone https://github.com/Vitinh021/INCODE.git -> clonar projeto
 docker-compose up --build -> construir
 docker-compose up         -> rodar
 docker-compose down       -> parar
